@@ -1,7 +1,5 @@
 from main import *
 
-from main import *
-
 run_cases = [
     (1, 200, 300),
     (2, 50, 250),
