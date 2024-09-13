@@ -6,7 +6,7 @@ class Archer:
 
     def get_shot(self):
         self.health -= 1
-        if self.health == 0:
+        if self.health <= 0:
             raise Exception(f"{self.name} is dead")
  
     def shoot(self, target):
