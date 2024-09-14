@@ -1,5 +1,5 @@
 class Library:
-    def __inti__(self, name):
+    def __init__(self, name):
         self.name = name
         self.books = []
     
@@ -15,6 +15,6 @@ class Library:
         lowered_ss = search_string.lower()
         matching_books = []
         for book in self.books:
-            if book.title.lower() == lowered_ss or book.author.lower() == lowered_ss:
+            if lowered_ss in book.title.lower() or lowered_ss in book.author.lower():
                 matching_books.append(book)
         return matching_books
