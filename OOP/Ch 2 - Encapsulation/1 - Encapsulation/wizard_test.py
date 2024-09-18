@@ -7,7 +7,7 @@ test_cases = [
     ('Tyson', 99, 89, 'Tyson',9900, 890, 9400, 990),
 ]
 
-def test(name, stamina, intelligence, expected_name, expected_health, expected_mana, expected_new_health, expected_new_mana):
+def test(name, stamina, intelligence, expected_name, expected_health, expected_mana, after_fireballed_health, after_fireballed_mana):
     print("--------------------")
     wizard = Wizard(name, stamina, intelligence)
     print(f"Expected name: {expected_name}")
@@ -33,19 +33,19 @@ def test(name, stamina, intelligence, expected_name, expected_health, expected_m
 
     print("Gets fireballed!")
     wizard.get_fireballed()
-    print(f"Expected New Health: {expected_new_health}")
+    print(f"Expected New Health: {after_fireballed_health}")
     print(f"Actual New Health: {wizard.health}")
 
-    if expected_new_health != wizard.health:
+    if after_fireballed_health != wizard.health:
         print('Fail')
         return False
     
     print("Drinks Mana Potion!")
     wizard.drink_mana_potion()
-    print(f"Expected New Mana: {expected_new_mana}")
+    print(f"Expected New Mana: {after_fireballed_mana}")
     print(f"Actual New Health: {wizard.mana}")
 
-    if expected_new_mana!= wizard.mana:
+    if after_fireballed_mana != wizard.mana:
         print('Fail')
         return False
     
