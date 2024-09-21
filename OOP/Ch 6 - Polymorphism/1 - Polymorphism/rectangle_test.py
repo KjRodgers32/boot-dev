@@ -1,4 +1,4 @@
-from Rectangle import Rectangle
+from Rectangle import *
 
 run_cases = [
     (Rectangle(0, 0, 4, 4), "corner1: (0,0) corner2: (4,4)"),
