@@ -5,6 +5,7 @@ from Shot import Shot
 from Player import Player
 from Asteroid import Asteroid
 from AsteroidField import AsteroidField
+from Score import Score
 
 def main():
     pygame.init()
@@ -23,9 +24,9 @@ def main():
 
     player = Player((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))
     asteroid_field = AsteroidField()
+    score = Score()
 
     dt = 0
-    score = 0
 
     while True:
         for event in pygame.event.get():
@@ -39,17 +40,24 @@ def main():
         
         for obj in asteroids:
             if obj.is_colliding(player):
-                print(f"Game Over! Score: {score}")
-                sys.exit() 
+                if player.lives == 0:
+                    sys.exit()
+                else:
+                    player.reset()
 
             for bullet in shots:
                 if bullet.is_colliding(obj):
-                    obj.split()
+                    obj.split(score)
                     bullet.kill()
-                    score += 1
         
         for obj in drawable:
             obj.draw(screen)
+
+        scoreboard= score.font.render(f"Score: {score.value}", False, ((100,100,100)))
+        lives = score.font.render(f"Lives: {player.lives}", False, ((100,100,100)))
+
+        screen.blit(scoreboard, (0,0))
+        screen.blit(lives, (0,50))
 
         pygame.display.flip()
         dt = clock.tick() / 1000
