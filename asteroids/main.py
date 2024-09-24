@@ -33,8 +33,6 @@ def main():
             if event.type == pygame.QUIT:
                 return
 
-        screen.fill("black")
-
         for obj in updateable:
             obj.update(dt)
         
@@ -55,6 +53,8 @@ def main():
 
         scoreboard= score.font.render(f"Score: {score.value}", False, ((100,100,100)))
         lives = score.font.render(f"Lives: {player.lives}", False, ((100,100,100)))
+
+        screen.fill("black")
 
         screen.blit(scoreboard, (0,0))
         screen.blit(lives, (0,50))
