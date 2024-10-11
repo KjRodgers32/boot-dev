@@ -17,4 +17,18 @@ func main() {
 	if length := len("sdkfja@jasdfj.com"); length > 1 {
 		fmt.Println("Email is valid")
 	}
+
+	// Switch statement
+	favColor := "yellow"
+
+	switch favColor {
+		case "red":
+			fmt.Println("You must be my father")
+		case "blue":
+			fmt.Println("You could also be my father") 
+		case "yellow":
+			fmt.Println("You one of them ones!")
+		default:
+			fmt.Println("You disappoint me")
+	}
 }
