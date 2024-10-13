@@ -23,7 +23,13 @@ func Test(t *testing.T) {
 		tests = append(tests, []testCase{
 			{148255510983, "We're so excited to have you", "Sending message: 'We're so excited to have you' to: 148255510983"},
 			{148255510984, "", "Sending message: '' to: 148255510984"},
-			{148255510985, "Hello, World!", "Sending message: 'Hello, World!' to: 148255510985"},
+			{unt, failCount)
+}
+
+// withSubmit is set at compile time depending
+// on which button is used to run the tests
+var withSubmit = true
+148255510985, "Hello, World!", "Sending message: 'Hello, World!' to: 148255510985"},
 		}...)
 	}
 
@@ -54,9 +60,4 @@ Pass
 	}
 
 	fmt.Println("---------------------------------")
-	fmt.Printf("%d passed, %d failed\n", passCount, failCount)
-}
-
-// withSubmit is set at compile time depending
-// on which button is used to run the tests
-var withSubmit = true
+	fmt.Printf("%d passed, %d failed\n", passCo
