@@ -6,7 +6,9 @@ import (
 
 func waitForDBs(numDBs int, dbChan chan struct{}) {
 	for i := 0; i < numDBs; i++ {
+		fmt.Println("this is blocking")
 		<-dbChan
+		fmt.Println("this is done blocking")
 	}
 }
 
@@ -23,6 +25,12 @@ func getDBsChannel(numDBs int) (chan struct{}, *int) {
 			count++
 		}
 	}()
-
+	fmt.Println("returning current ch and count")
 	return ch, &count
+}
+
+func main() {
+	dbs := 5
+	dbChan, _:= getDBsChannel(dbs)
+	waitForDBs(dbs, dbChan)
 }
