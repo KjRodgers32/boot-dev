@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
-	"time"
 )
 
 func waitForDBs(numDBs int, dbChan chan struct{}) {
-	<-dbChan
-	numDBs--
-	time.Sleep(time.Millisecond * 2)
+	for i := 0; i < numDBs; i++ {
+		<-dbChan
+	}
 }
 
 // don't touch below this line
